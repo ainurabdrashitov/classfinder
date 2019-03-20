@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+mvn clean compile > build.log
+java -cp target/classes com.aainur.classfinder.ClassFinder "$@"
+mvn clean > /dev/null
