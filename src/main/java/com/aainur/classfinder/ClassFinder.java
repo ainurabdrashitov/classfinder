@@ -12,7 +12,7 @@ public class ClassFinder {
 
     public static void main(String[] args) throws IOException {
         final String fileName = args[0];
-        final String pattern = replaseIfPatternInLower(args[1]);
+        final String pattern = args[1];
         final List<String> lines;
         try {
             lines = new ArrayList<>(readAllLines(get(fileName)));
@@ -35,7 +35,7 @@ public class ClassFinder {
             return false;
         }
         List<String> subLines = splitLineByUppers(getSimpleClassName(line));
-        List<String> subPatterns = splitLineByUppers(pattern);
+        List<String> subPatterns = splitLineByUppers(replaseIfPatternInLower(pattern));
         int matchingSubstringIndex = 0;
         for (String subPattern : subPatterns) {
             final int prevMatchingSubstringIndex = matchingSubstringIndex;

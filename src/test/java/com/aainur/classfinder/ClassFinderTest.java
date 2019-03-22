@@ -76,8 +76,12 @@ class ClassFinderTest {
         assertTrue(ClassFinder.matches("c.d.FooBar", ""));
         assertTrue(ClassFinder.matches("a.b.FooBarBaz", "FooB*"));
         assertTrue(ClassFinder.matches("c.d.FooBar", "FooB*"));
+        assertTrue(ClassFinder.matches("c.d.FooBarBaz", "fbb"));
+        assertTrue(ClassFinder.matches("c.d.FooBarBaz", "oBB"));
 
         assertFalse(ClassFinder.matches("", "A"));
         assertFalse(ClassFinder.matches("codeborne.WishMaker", "FooB*"));
+        assertFalse(ClassFinder.matches("c.d.FooBarBaz", "fBb"));
+        assertFalse(ClassFinder.matches("c.d.FooBarBaz", "oBb"));
     }
 }
